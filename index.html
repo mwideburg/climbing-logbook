@@ -868,7 +868,6 @@
                 const fileData = await response.json();
                 const content = atob(fileData.content); // decode base64
                 const parsed = JSON.parse(content);
-                console.log(parsed)
                 updateSessionsData(parsed)
                 return parsed;
             } catch (error) {
