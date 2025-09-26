@@ -552,7 +552,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeApp();
         });
-        getFromGitHub()
         function initializeApp() {
             // Set default dates
             const today = new Date().toISOString().split('T')[0];
@@ -566,6 +565,7 @@
             if (savedRepo && savedToken) {
                 document.getElementById('githubRepo').value = savedRepo;
                 document.getElementById('githubToken').value = savedToken;
+                getFromGitHub()
                 showMainApp();
             }
             
@@ -593,6 +593,7 @@
             localStorage.setItem('githubToken', token);
             
             showStatus('Setup saved successfully!', 'success');
+            setTimeout(getFromGitHub, 500)
             setTimeout(showMainApp, 1000);
         }
         
